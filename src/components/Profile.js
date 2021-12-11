@@ -13,9 +13,10 @@ const Profile = () => {
         // eslint-disable-next-line
     }, []);
 
+    const host = "https://my-e-notebook.herokuapp.com";
 
     const getData = async () => {
-        const response = await fetch("http://localhost:5000/api/auth/getuser", {
+        const response = await fetch(`${host}/api/auth/getuser`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -15,10 +15,12 @@ const Login = (props) => {
         const { name, value } = event.target;
         setCredentials({ ...credentials, [name]: value });
     }
-    
+
+    const host = "https://my-e-notebook.herokuapp.com";
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
