@@ -6,13 +6,14 @@ const NotesState = (props) => {
     const intialNote = []
 
     const [notes, setNotes] = useState(intialNote);
-    const [notebookId, setNotebookId] = useState("61b0987929314dab0b03aa04");
+    const [notebookId, setNotebookId] = useState(process.env.REACT_APP_NOTEBOOKID);
+    console.log(process.env.REACT_APP_NOTEBOOKID);
 
     //GET a Note
     const getNotes = async (id) => {
         //API Call
         if (id === undefined) {
-            const response = await fetch(`${host}/api/notes/fetchallnotes/61b0987929314dab0b03aa04`, {
+            const response = await fetch(`${host}/api/notes/fetchallnotes/${process.env.REACT_APP_NOTEBOOKID}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
